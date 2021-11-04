@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class MonsterFind {
 
   public static void main(String[] args) {
+
+    // 다시 구현
     int point=0;
 
     do {
