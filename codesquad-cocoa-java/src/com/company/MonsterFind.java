@@ -6,7 +6,7 @@ public class MonsterFind {
 
   public static void main(String[] args) {
 
-    // 다시 구현
+    // 다시 구현d
     int point=0;
 
     do {
