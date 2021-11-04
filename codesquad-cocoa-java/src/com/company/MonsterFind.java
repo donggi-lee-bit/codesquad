@@ -6,8 +6,8 @@ public class MonsterFind {
 
   public static void main(String[] args) {
 
-    // 다시 구현dd
-    int point=0;
+    // 다시 구현dd2
+     int point=0;
 
     do {
       String[][] array=new String[5][5];
