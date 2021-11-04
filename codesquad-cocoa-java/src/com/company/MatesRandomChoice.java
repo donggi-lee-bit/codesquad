@@ -8,6 +8,7 @@ public class MatesRandomChoice {
   public MatesRandomChoice() {
   }
 
+  // 셔플 사용해보기
   public static void main(String[] args) {
     String[] RandomNames = {"Jerry", "K", "Mk", "Tany", "donggi", "mandoo", "taksu", "노리", "땃쥐", "피오", "후"};
 
