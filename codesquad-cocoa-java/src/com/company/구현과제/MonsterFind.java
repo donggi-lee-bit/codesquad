@@ -1,4 +1,4 @@
-package com.company;
+package com.company.구현과제;
 
 import java.util.Scanner;
 
