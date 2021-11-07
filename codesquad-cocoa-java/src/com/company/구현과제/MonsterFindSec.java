@@ -10,26 +10,32 @@ public class MonsterFindSec {
   static int myY = 2;
 
   public static void main(String[] args) {
-
+	// 배열을 "O"로 초기화
     for (int i = 0; i < 5; i++) {
       Arrays.fill(arr[i], "O");
     }
-
+	// 현재 캐릭터 위치
     arr[myX][myY] = "H";
+	// 랜덤하게 폭탄 설치
     isBomb();
+	// 랜덤하게 몬스터 설치
     isMonster();
+	// input, wasd 등 방향 입력 받기
     Input();
 
+	In
   }
 
   public static void Input() {
     Scanner sc = new Scanner(System.in);
+	// 입력을 언제까지 요청할거냐? H 가 폭탄이나 몬스터에 겹쳐질때까지
     System.out.println("입력해주세요 : ");
     String key = sc.nextLine();
     if (key == "w" && myX < 4) {
       myX++;
       Print();
       System.out.println("과연 myX의 값은? : " + myX);
+      System.out.println("어떻게 하면 ? : " + myX);
     }
   }
 
