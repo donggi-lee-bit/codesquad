@@ -14,6 +14,7 @@ public class OddGame3_1 {
   static int point = 100;
   static int inputPoint = 0;
   static int computerpoint = 120;
+  static int numStage = 1;
 
   public static void main(String[] args) {
 
@@ -55,20 +56,26 @@ public class OddGame3_1 {
   }
 
   public static void newComputer() {
-    double numStage = 2;
-    computerpoint = point * (int) (Math.pow(1.2, numStage));
-    System.out.printf("새롭게 시작한 컴퓨터의 점수는 : \n", computerpoint);
+    if (numStage < 9) {
+      ++numStage;
+    } else {
+      System.out.println("============ 플레이어의 승리입니다 ============");
+    }
+    computerpoint = point * ((int) (Math.pow(1.2, numStage)));
+    System.out.printf("stage%d 새롭게 시작한 컴퓨터의 점수는 : %d \n", numStage, computerpoint);
   }
 
   public static void computerPoint(int cnt) {
     int count = cnt;
-    if (computerpoint < 0) {
-      newComputer();
-    }
 
-    if (count == 1) {
+    if (count == 1 && computerpoint > 0) {
       computerpoint -= inputPoint;
-      System.out.printf("상대 점수는 \'%d\' : \n", computerpoint);
+
+      if (computerpoint == 0) {
+        newComputer();
+      } else {
+        System.out.printf("상대 점수는 \'%d\' : \n", computerpoint);
+      }
     } else {
       computerpoint += inputPoint;
       System.out.printf("상대 점수는 \'%d\' : \n", computerpoint);
