@@ -10,7 +10,7 @@ public class OddGame3_1 {
   public static void main(String[] args) {
 
     System.out.println("이름을 입력해주세요 : ");
-    System.out.printf("%s님 게임을 시작하겠습니다. 당신은 100원을 가지게 됩니다. \n", Input());
+    System.out.printf("%s님 게임을 시작하겠습니다. 당신은 100원을 가지게 되고, 상대는 120원을 가지게 됩니다. \n", Input());
     inputPoint = IntegerInput();
 
     for (; point > 0; ) {
@@ -18,27 +18,44 @@ public class OddGame3_1 {
     }
   }
 
-  public static void MyLosePoint() {
-    point -= inputPoint;
-    System.out.printf("졌을 때 나의 점수는 \'%d\' \n", point);
-    IntegerInput();
-  }
-  public static void MyUpPoint() {
-    point += inputPoint;
-    System.out.printf("이겼을 때 나의 점수는 \'%d\' \n", point);
-    IntegerInput();
-  }
-
-  // input 으로 홀 이 들어오면.
+  // 갑자기 짝하면 무조건 이기게 됨 ㅡㅡ
   public static void myOddEven() {
     System.out.println("홀, 짝 중 하나를 입력하세요 : ");
     String input = Input();
+    int cnt = 0;
+
     if (input.equals(computerOddEven())) {
       System.out.println("You Win!!!");
-      MyUpPoint();
+      cnt++;
+      point += inputPoint;
+      System.out.printf("이겼을 때 나의 점수는 \'%d\' \n", point);
+      computerPoint(cnt);
+      inputPoint = IntegerInput();
+
     } else {
       System.out.println("Lose.");
-      MyLosePoint();
+      cnt--;
+      point -= inputPoint;
+      System.out.printf("졌을 때 나의 점수는 \'%d\' \n", point);
+      computerPoint(cnt);
+
+      if (point > 0) {
+        inputPoint = IntegerInput();
+      } else {
+        System.out.println("패배");
+      }
+    }
+  }
+
+  public static void computerPoint(int cnt) {
+    int point = 120;
+    int count = cnt;
+    if (count == 1) {
+      point -= inputPoint;
+      System.out.printf("상대 점수는 \'%d\' : \n", point);
+    } else {
+      point += inputPoint;
+      System.out.printf("상대 점수는 \'%d\' : \n", point);
     }
   }
 
@@ -62,7 +79,6 @@ public class OddGame3_1 {
     String in = Input();
 
     int a = Integer.parseInt(in);
-    inputPoint = 0;
     return a;
   }
 
@@ -71,5 +87,4 @@ public class OddGame3_1 {
     String str = sc.nextLine();
     return str;
   }
-
 }
