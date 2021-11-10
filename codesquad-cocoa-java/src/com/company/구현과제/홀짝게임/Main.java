@@ -40,7 +40,7 @@ public class Main {
 
   public static void game() {
     for (; GameMachine.point > 0; ) {
-      GameMachine.myOddEven();
+      GameMachine.gameOddEven();
     }
   }
 
