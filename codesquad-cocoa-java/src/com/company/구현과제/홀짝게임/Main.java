@@ -32,7 +32,7 @@ public class Main {
 
     int point = in.inputBet();
 
-    if (point > GameMachine.point) {
+    if (point > GameMachine.point || point > Computer.computerPoint) {
       UserInput.printErrorMessage();
       betting();
     }

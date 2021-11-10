@@ -47,8 +47,8 @@ public class Computer {
     } else {
       System.out.println("============ 플레이어의 승리입니다 ============");
     }
-    int newScore = GameMachine.point * ((int) (Math.pow(1.2, numStage)));
-    int current = currentComputerPoint(newScore);
+    computerPoint = GameMachine.point * ((int) (Math.pow(1.2, numStage)));
+    int current = currentComputerPoint(computerPoint);
     System.out.printf("stage %d 새롭게 시작한 컴퓨터의 점수는 : %d \n", numStage, current);
   }
 }

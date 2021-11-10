@@ -4,10 +4,13 @@ public class GameMachine {
 
   static int point = 100;
   static int inputUserPoint = 0;
+  static int betCount;
 
   public static void gameOddEven() {
     UserInput in = new UserInput();
     int cnt = 0;
+    // betCount = 몇 번 베팅 count
+    betCount++;
 
     if (in.inputOddEven().equals(Computer.computerOddEven())) {
       System.out.println("You Win!!!!!!!!!!");
