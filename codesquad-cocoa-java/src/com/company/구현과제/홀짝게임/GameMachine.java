@@ -14,7 +14,7 @@ public class GameMachine {
     int cnt = 0;
 
     if (input.equals(Computer.computerOddEven())) {
-      System.out.println("You Win!!!");
+      System.out.println("You Win!!!!!!!!!!");
       cnt++;
       point += inputUserPoint;
       System.out.printf("게임에서 이겼습니다. 당신의 점수는 \'%d\'입니다. \n", point);

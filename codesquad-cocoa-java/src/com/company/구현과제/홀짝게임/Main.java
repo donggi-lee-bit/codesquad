@@ -29,7 +29,13 @@ public class Main {
 
   public static void betting() {
     UserInput in = new UserInput();
-    GameMachine.inputUserPoint = in.inputInteger();
+
+    int point = in.inputBet();
+
+    if (point > GameMachine.point) {
+      UserInput.printErrorMessage();
+      betting();
+    }
   }
 
   public static void game() {
@@ -43,6 +49,7 @@ public class Main {
     UserInput in = new UserInput();
 
     System.out.println("이름을 입력해주세요 : ");
-    System.out.printf("%s님 게임을 시작하겠습니다. 당신은 100원을 가지게 되고, 상대는 120원을 가지게 됩니다. \n", in.input());
+    String userName = in.input();
+    System.out.printf("%s님 게임을 시작하겠습니다. 당신은 \'100\' 포인트를 가지게 되고, 상대는 \'120\' 포인트를 가지게 됩니다. \n", userName);
   }
 }

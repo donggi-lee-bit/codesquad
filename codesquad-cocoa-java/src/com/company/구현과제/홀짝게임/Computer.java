@@ -24,19 +24,18 @@ public class Computer {
 
   public int currentComputerPoint(int score) {
 
-    UserInput in = new UserInput();
 
     if (score == 1 && computerPoint > 0) {
-      computerPoint -= in.inputInteger();
+      computerPoint -= GameMachine.inputUserPoint;
 
       if (computerPoint == 0) {
         newStage();
       } else {
-        System.out.printf("상대 점수는 \'%d\' : \n", computerPoint);
+        System.out.printf("상대 점수는 \'%d\' 입니다. \n", computerPoint);
       }
     } else {
-      computerPoint += in.inputInteger();
-      System.out.printf("상대 점수는 \'%d\' : \n", computerPoint);
+      computerPoint += GameMachine.inputUserPoint;
+      System.out.printf("상대 점수는 \'%d\' 입니다. \n", computerPoint);
     }
     return computerPoint;
   }

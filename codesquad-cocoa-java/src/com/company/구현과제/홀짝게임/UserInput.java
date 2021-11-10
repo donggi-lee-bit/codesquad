@@ -15,4 +15,15 @@ public class UserInput {
     int num = sc.nextInt();
     return num;
   }
+
+  public static void printErrorMessage() {
+    System.out.println("플레이어가 가진 포인트보다 많습니다.");
+  }
+
+  public int inputBet() {
+    System.out.println("베팅할 포인트를 입력해주세요 : ");
+    GameMachine.inputUserPoint = inputInteger();
+    return GameMachine.inputUserPoint;
+  }
 }
+
