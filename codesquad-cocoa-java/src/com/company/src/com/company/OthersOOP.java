@@ -9,6 +9,7 @@ public class OthersOOP {
     // class : System, Math, FileWriter
     // instance : f1, f2
 
+
     // Math 라고 하는 클래스에, PI 라는 변수가 있다.
     System.out.println(Math.PI);
     // floor(바닥)로 소수점을 내려주는 Math의 method이다.
