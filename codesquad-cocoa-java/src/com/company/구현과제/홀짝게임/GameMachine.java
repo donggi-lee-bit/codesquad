@@ -4,7 +4,8 @@ public class GameMachine {
 
   static int point = 100;
   static int inputUserPoint = 0;
-  static int betCount;
+  static int betCount = 0;
+  static String userName;
 
   public static void gameOddEven() {
     UserInput in = new UserInput();
@@ -25,11 +26,14 @@ public class GameMachine {
 
   public static void conditionsToEndTheGame() {
     UserInput in = new UserInput();
+    String user = GameMachine.userName;
 
     if (point > 0) {
       inputUserPoint = in.inputBet();
     } else {
       System.out.println("패배");
+      System.out.println("------------------------------------------");
+      System.out.println(user + "님 수고하셨습니다. 당신의 베팅 횟수는 : " + Rank.countingBet() + "회 입니다. ");
     }
   }
 
