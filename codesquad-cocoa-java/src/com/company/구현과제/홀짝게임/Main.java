@@ -1,5 +1,6 @@
 package 홀짝게임;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -29,7 +30,12 @@ public class Main {
 
   public static void betting() {
     UserInput in = new UserInput();
-    in.inputBet();
+    try {
+      in.inputBet();
+    } catch (Exception e) {
+      Validation.printErrorMessage();
+      betting();
+    }
   }
 
   public static void game() {

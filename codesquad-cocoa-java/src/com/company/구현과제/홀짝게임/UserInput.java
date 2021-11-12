@@ -11,7 +11,7 @@ public class UserInput {
     return str;
   }
 
-  public int inputBet() {
+  public int inputBet() throws Exception {
     System.out.println("베팅할 포인트를 입력해주세요 : ");
     Scanner sc = new Scanner(System.in);
 
