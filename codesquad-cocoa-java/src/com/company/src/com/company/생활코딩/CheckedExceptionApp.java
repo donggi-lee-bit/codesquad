@@ -6,13 +6,22 @@ import java.io.IOException;
 public class CheckedExceptionApp {
 
   public static void main(String[] args) {
+    FileWriter f = null;
     try {
-      FileWriter f = new FileWriter("data.txt");
+      f = new FileWriter("data.txt");
       f.write("Hello");
-      f.close();
+      // close를 하기 전에 예외가 발생할 수 있기 때문에 finally로 처리해야 한다.
+
     } catch (IOException e) {
       e.printStackTrace();
+    } finally {
+      if (f != null) {
+        try {
+          f.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
     }
   }
-
 }
