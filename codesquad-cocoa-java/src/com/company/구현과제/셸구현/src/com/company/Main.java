@@ -12,14 +12,10 @@ public class Main {
 
 
     public static void start() {
-        System.out.println("hosh> ");
-    }
-    public static void printUser() {
-        System.out.println("hosh>" + " " + input());
+        System.out.print("hosh> ");
     }
 
-    public static String input() {
-        Scanner sc = new Scanner(System.in);
-        return sc.next();
+    public static void printUser() {
+        System.out.println("hosh> " + Input.input());
     }
 }
