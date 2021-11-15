@@ -1,23 +1,15 @@
 package com.company;
 
-import java.io.InputStream;
-import java.util.Scanner;
+import com.company.MyShell.Input;
+import com.company.MyShell.Shell;
 
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        start();
-        print();
-    }
-
-
-    public static void start() {
-        System.out.print("hosh> ");
-    }
-
-    public static void print() {
-        System.out.println("hosh> " + Input.input());
-        print();
+        // write your code here
+        Shell shell = new Shell();
+        while (shell.start) {
+            shell.command();
+        }
     }
 }
