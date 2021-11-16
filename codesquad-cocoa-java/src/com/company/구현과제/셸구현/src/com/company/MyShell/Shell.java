@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.DirectoryNotEmptyException;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
@@ -33,9 +34,9 @@ public class Shell {
 
   public void command() {
     switch (getCommand()) {
-      case "ls":
-        ls();
-        break;
+//      case "ls":
+//        ls();
+//        break;
       case "cp":
         cp();
         break;
@@ -51,20 +52,32 @@ public class Shell {
       case "rm":
         rm();
         break;
+//      case "mv":
+//        mv();
+//        break;
       default:
         command();
         break;
     }
   }
 
+//  private void mv() {
+//
+//  }
+  // 1차 OK
   private void mkdir() {
     try {
-      Files.createDirectory(Path.of(Shell.path));
+      Path directoryPath = Paths.get(Shell.path + "mkdirNewDir");
+      Files.createDirectory(directoryPath);
+    } catch (FileAlreadyExistsException e) {
+      e.printStackTrace();
+    } catch (NoSuchFileException e) {
+      e.printStackTrace();
     } catch (IOException e) {
       System.err.format("상위 디렉토리가 존재하지 않습니다. ");
     }
   }
-
+  // 1차 OK
   public static void rm() {
     try {
       Files.delete(Path.of(
@@ -81,11 +94,11 @@ public class Shell {
 //  public static void mkdir() {
 //    path
 //  }
-
+// 1차 OK
   public static void pwd() {
     System.out.println(path);
   }
-
+  // 1차 OK
   public static void cp() {
     try {
       File file = new File(Shell.path + "text_file.txt");
@@ -94,48 +107,9 @@ public class Shell {
     } catch (IOException e) {
       e.printStackTrace();
     }
-
   }
 
   public static void cd() {
 
   }
-
-  // list segements
-  public void ls() {
-    //String path = System.getProperty("user.dir") + "/" + this.getClass().getName().replace(".", "/").replace(this.getClass().getSimpleName(), "");
-    File file = new File(
-        "/Users/donggilee/Desktop/codesquad/clonedir/codesquad-cocoa-java/src/com/company/구현과제/셸구현/com/company/");
-    File files[] = file.listFiles();
-
-    for (int i = 0; i < files.length; i++) {
-      System.out.print(files[i] + " ");
-    }
-  }
-
-  private static void readFile(String a) {
-
-    try {
-      FileReader fr = new FileReader(a);
-      BufferedReader br = new BufferedReader(fr);
-
-      while (true) {
-        String line = br.readLine();
-        if (line == null) {
-          break;
-        }
-      }
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  public static void fileWriter(String filename) throws IOException {
-    FileWriter f1 = new FileWriter("filename.txt");
-    f1.write("Hello Java");
-    f1.close();
-  }
-
 }
