@@ -34,9 +34,9 @@ public class Shell {
 
   public void command() {
     switch (getCommand()) {
-//      case "ls":
-//        ls();
-//        break;
+      case "ls":
+        ls();
+        break;
       case "cp":
         cp();
         break;
@@ -61,7 +61,15 @@ public class Shell {
     }
   }
 
-//  private void mv() {
+  private void ls() {
+    File dir = new File(Shell.path);
+    String[] filenames = dir.list();
+    for (int i = 0; i < filenames.length; i++) {
+      System.out.println(filenames[i]);
+    }
+  }
+
+  //  private void mv() {
 //
 //  }
   // 1차 OK
