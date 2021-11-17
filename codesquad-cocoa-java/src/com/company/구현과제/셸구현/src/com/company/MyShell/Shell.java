@@ -1,10 +1,6 @@
 package com.company.MyShell;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.FileAlreadyExistsException;
@@ -13,7 +9,6 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.*;
 
 public class Shell {
 
@@ -52,6 +47,9 @@ public class Shell {
       case "rm":
         rm();
         break;
+      case "~":
+        root();
+        break;
 //      case "mv":
 //        mv();
 //        break;
@@ -61,6 +59,13 @@ public class Shell {
     }
   }
 
+  private void root() {
+    Path path = Paths.get(Shell.path);
+    Path root = path.getRoot();
+    System.out.println(root);
+  }
+
+  // path 변경 시 ls 출력 기능 추가
   private void ls() {
     File dir = new File(Shell.path);
     String[] filenames = dir.list();
@@ -72,7 +77,8 @@ public class Shell {
   //  private void mv() {
 //
 //  }
-  // 1차 OK
+  // 만들 디렉토리 이름 받아와서 파일 만들기
+  // 경로 이동했을떄도 그 위치에 만들 수 있게
   private void mkdir() {
     try {
       Path directoryPath = Paths.get(Shell.path + "mkdirNewDir");
@@ -85,11 +91,10 @@ public class Shell {
       System.err.format("상위 디렉토리가 존재하지 않습니다. ");
     }
   }
-  // 1차 OK
+  // 경로 유동성
   public static void rm() {
     try {
-      Files.delete(Path.of(
-          "/Users/donggilee/Desktop/codesquad/clonedir/codesquad-cocoa-java/src/com/company/구현과제/셸구현/src/com/company/exdir"));
+      Files.delete(Path.of(Shell.path));
     } catch (NoSuchFileException x) {
       System.err.format("해당 없음");
     } catch (DirectoryNotEmptyException x) {
@@ -102,11 +107,11 @@ public class Shell {
 //  public static void mkdir() {
 //    path
 //  }
-// 1차 OK
+// 경로 이동
   public static void pwd() {
     System.out.println(path);
   }
-  // 1차 OK
+  // 경로 이동, 입력 값 받기
   public static void cp() {
     try {
       File file = new File(Shell.path + "text_file.txt");
