@@ -1,9 +1,6 @@
 package com.donggi.ClockCalendar;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.temporal.TemporalAdjusters;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class MyCalendar {
@@ -16,7 +13,7 @@ public class MyCalendar {
       System.out.print("확인하고 싶은 연도와 월을 입력해주세요 : ");
       sc.nextLine();
       String inputYear = sc.nextLine();
-      String[] strArr = inputYear.split(" ");
+      String[] strArr = inputYear.split("\\.|,| |-|/");
       int year = Integer.parseInt(strArr[0]);
       int month = Integer.parseInt(strArr[1]);
       cal(year, month);
