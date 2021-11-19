@@ -13,10 +13,6 @@ public class MyClock {
       {"정", "일", "이", "삼", "사", "육"},
       {"오", "오", "칠", "팔", "구", "분"}};
 
-  public static void main(String[] args) {
-    board();
-  }
-
   public static void clock() {
     board();
   }
