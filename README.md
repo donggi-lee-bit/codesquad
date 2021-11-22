@@ -1,5 +1,6 @@
 # codesquad cocoa (2021.11.01 ~ )
-[스레드 스터디](https://github.com/devjun10/CodeSquad_Cocoa_Study/tree/main/content/thread/donggi)
+- [코코아 방과후 스터디](https://github.com/devjun10/CodeSquad_Cocoa_Study)
+  - [스레드](https://github.com/devjun10/CodeSquad_Cocoa_Study/tree/main/content/thread/donggi)
 ---
 - 1주차
     - [Day 1](https://github.com/donggi-lee-bit/codesquad/wiki/Day-1)
