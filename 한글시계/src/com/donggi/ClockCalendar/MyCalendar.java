@@ -71,7 +71,7 @@ public class MyCalendar {
 
   private void clock(String s) {
     if (s.equals("clock")) {
-      System.out.println("clock을 찾으셨나요? 아직 만들지 않았네요. ");
+      MyClock.clock();
     }
   }
 
