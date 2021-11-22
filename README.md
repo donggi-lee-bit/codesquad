@@ -1,7 +1,6 @@
-# codesquad cocoa 레파지토리입니다.
+# codesquad cocoa (2021.11.01 ~ )
 [스레드 스터디](https://github.com/devjun10/CodeSquad_Cocoa_Study/tree/main/content/thread/donggi)
 
----
 - 1주차
     - [Day 1](https://github.com/donggi-lee-bit/codesquad/wiki/Day-1)
     - [Day 2](https://github.com/donggi-lee-bit/codesquad/wiki/Day2)
