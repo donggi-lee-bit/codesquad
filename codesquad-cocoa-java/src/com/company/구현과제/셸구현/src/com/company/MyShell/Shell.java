@@ -46,7 +46,7 @@ public class Shell {
         mkdir(arr[1]);
         break;
       case "rm":
-        rm();
+        rm(arr[1]);
         break;
       case "~":
         root();
@@ -93,9 +93,9 @@ public class Shell {
     }
   }
   // 경로 유동성
-  public static void rm() {
+  public static void rm(String name) {
     try {
-      Files.delete(Path.of(Shell.path));
+      Files.delete(Path.of(Shell.path + name));
     } catch (NoSuchFileException x) {
       System.err.format("해당 없음");
     } catch (DirectoryNotEmptyException x) {
