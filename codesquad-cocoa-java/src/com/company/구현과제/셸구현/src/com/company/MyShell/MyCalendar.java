@@ -10,7 +10,6 @@ public class MyCalendar {
 
   public static void getCal() {
     System.out.print("확인하고 싶은 연도와 월을 입력해주세요 : ");
-    sc.nextLine();
     String inputYear = sc.nextLine();
     String[] strArr = inputYear.split("\\.|,| |-|/");
     int year = Integer.parseInt(strArr[0]);
