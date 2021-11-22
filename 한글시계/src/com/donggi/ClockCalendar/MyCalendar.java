@@ -70,8 +70,10 @@ public class MyCalendar {
   }
 
   private void clock(String s) {
+
     if (s.equals("clock")) {
-      MyClock.clock();
+      MyThread th = new MyThread();
+      th.start();
     }
   }
 
