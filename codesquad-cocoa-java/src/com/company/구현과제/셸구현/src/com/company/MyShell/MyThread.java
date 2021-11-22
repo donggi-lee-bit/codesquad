@@ -1,4 +1,4 @@
-package com.donggi.ClockCalendar;
+package com.company.MyShell;
 
 public class MyThread extends Thread {
 

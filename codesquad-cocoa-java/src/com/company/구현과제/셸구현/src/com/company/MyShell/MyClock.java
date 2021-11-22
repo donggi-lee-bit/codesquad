@@ -1,4 +1,4 @@
-package com.donggi.ClockCalendar;
+package com.company.MyShell;
 
 import java.time.LocalTime;
 
@@ -53,7 +53,7 @@ public class MyClock {
 //      board[2][3] = ANSI_GREEN + board[2][3] + ANSI_RESET;
 //    }
 
-    System.out.println("\n");
+    System.out.println();
     for (int i = 0; i < board.length; i++) {
       for (int j = 0; j < board[i].length; j++) {
         System.out.print(board[i][j] + " ");

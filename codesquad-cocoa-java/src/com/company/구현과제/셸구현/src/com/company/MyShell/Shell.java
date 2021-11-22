@@ -54,10 +54,24 @@ public class Shell {
 //      case "mv":
 //        mv();
 //        break;
+      case "hclock":
+        hclock();
+        break;
+      case "cal":
+        cal();
+        break;
       default:
         command();
         break;
     }
+  }
+
+  private void cal() {
+    MyCalendar.getCal();
+  }
+
+  private void hclock() {
+    MyClock.clock();
   }
 
   private void root() {

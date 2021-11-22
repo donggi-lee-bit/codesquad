@@ -1,4 +1,4 @@
-package com.donggi.ClockCalendar;
+package com.company.MyShell;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -8,20 +8,17 @@ public class MyCalendar {
   public static Scanner sc = new Scanner(System.in);
   private static String strWeek = "SUN  MON  TUE  WED  THU  FRI  SAT";
 
-  public void checkCalClock(String s) {
-    if (s.equals("cal")) {
-      System.out.print("확인하고 싶은 연도와 월을 입력해주세요 : ");
-      sc.nextLine();
-      String inputYear = sc.nextLine();
-      String[] strArr = inputYear.split("\\.|,| |-|/");
-      int year = Integer.parseInt(strArr[0]);
-      int month = Integer.parseInt(strArr[1]);
-      cal(year, month);
-    }
-    clock(s);
+  public static void getCal() {
+    System.out.print("확인하고 싶은 연도와 월을 입력해주세요 : ");
+    sc.nextLine();
+    String inputYear = sc.nextLine();
+    String[] strArr = inputYear.split("\\.|,| |-|/");
+    int year = Integer.parseInt(strArr[0]);
+    int month = Integer.parseInt(strArr[1]);
+    cal(year, month);
   }
 
-  private void cal(int year, int month) {
+  private static void cal(int year, int month) {
 
     LocalDate initial = LocalDate.of(year, month, 1);
     int endOfTheDay = initial.lengthOfMonth();
