@@ -25,4 +25,5 @@
 ---
 - 4주차
   - [Day 16](https://github.com/donggi-lee-bit/codesquad/wiki/Day-16)
+  - [Day 17](https://github.com/donggi-lee-bit/codesquad/wiki/Day-17)
 ---
