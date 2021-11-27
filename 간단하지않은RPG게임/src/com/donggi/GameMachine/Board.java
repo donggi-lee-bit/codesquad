@@ -12,11 +12,11 @@ public class Board {
    */
   public static void board() {
     int[][] boardArr = new int[5][5];
-//    int myCharacter = 2;
+    int myCharacter = 2;
 //    int myMonster = 3;
-//    int characterX = 2;
-//    int characterY = 2;
-//    boardArr[characterX][characterY] = myCharacter;
+    int characterX = 2;
+    int characterY = 2;
+    boardArr[characterX][characterY] = myCharacter;
 
     for (int i = 0; i < boardArr.length; i++) {
       for (int j = 0; j < boardArr[i].length; j++) {
