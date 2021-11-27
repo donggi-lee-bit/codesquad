@@ -15,27 +15,17 @@ public class Board {
   static int myMonster = 3;
   static int myBomb = 4;
   static int checkZero = 0;
+  static int characterX = 2;
+  static int characterY = 2;
+  static int myCharacter = 2;
 
   public static void board() {
 
-    int myCharacter = 2;
-
-    int characterX = 2;
-    int characterY = 2;
 
     boardArr[characterX][characterY] = myCharacter;
-
-
-
     checkBoard(myBomb);
     checkBoard(myMonster);
-
-    for (int i = 0; i < boardArr.length; i++) {
-      for (int j = 0; j < boardArr[i].length; j++) {
-        System.out.print(boardArr[i][j]);
-      }
-      System.out.println();
-    }
+    printBoard();
   }
 
   private static void checkBoard(int gameObject) {
@@ -47,5 +37,62 @@ public class Board {
       return ;
     }
     checkBoard(gameObject);
+  }
+
+  public void movingCharacter(String command) {
+    int x = 0;
+    int y = 0;
+
+    if (command.equals("w")) {
+      x = characterX - 1;
+      y = characterY;
+    }
+
+    if (command.equals("a")) {
+      x = characterX;
+      y = characterY - 1;
+    }
+
+    if (command.equals("s")) {
+      x = characterX + 1;
+      y = characterY;
+    }
+
+    if (command.equals("d")) {
+      x = characterX;
+      y = characterY + 1;
+    }
+
+    if (x < 0) {
+      x = 0;
+    }
+
+    if (y < 0) {
+      y = 0;
+    }
+
+    if (x > 4) {
+      x = 4;
+    }
+
+    if (y > 4) {
+      y = 4;
+    }
+
+
+    boardArr[characterX][characterY] = 0;
+    boardArr[x][y] = myCharacter;
+    characterX = x;
+    characterY = y;
+    printBoard();
+  }
+
+  private static void printBoard() {
+    for (int i = 0; i < boardArr.length; i++) {
+      for (int j = 0; j < boardArr[i].length; j++) {
+        System.out.print(boardArr[i][j]);
+      }
+      System.out.println();
+    }
   }
 }
