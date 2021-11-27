@@ -61,28 +61,23 @@ public class Board {
       y = characterY + 1;
     }
 
-    if (x < 0) {
-      x = 0;
-    }
+    x = getXY(x);
 
-    if (y < 0) {
-      y = 0;
-    }
-
-    if (x > 4) {
-      x = 4;
-    }
-
-    if (y > 4) {
-      y = 4;
-    }
+    y = getXY(y);
 
     boardArr[characterX][characterY] = 0;
     characterX = x;
     characterY = y;
 
-
     int check = boardArr[x][y];
+    reaction(check);
+
+    boardArr[x][y] = myCharacter;
+    printBoard();
+
+  }
+
+  private void reaction(int check) {
     if (check == myBomb) {
       System.out.println("폭탄을 밟아버렸습니다~~~~~~~~~~~~~~");
     }
@@ -90,35 +85,44 @@ public class Board {
     if (check == myMonster) {
       System.out.println("모오오오오오온스터야야야야야야~~~~~~~~~~");
     }
-    boardArr[x][y] = myCharacter;
-    printBoard();
-
-
-//    pushBomb(x, y);
-//    catchMonster(x, y);
   }
 
-  private int getCheck(int x, int y) {
-    return boardArr[x][y];
-  }
-  private void pushBomb(int x, int y) {
-    if (boardArr[x][y] == myBomb) {
-      System.out.println("폭탄을 밟아버렸습니다~~~~~~~~~~~~~~");
+  private int getXY(int x) {
+    if (x < 0) {
+      x = 0;
     }
-  }
 
-  private void catchMonster(int x, int y) {
-    if (boardArr[x][y] == myMonster) {
-      System.out.println("축하합니다. 몬스터를 잡았습니다!!!!!!!!!!!!!!");
+    if (x > 4) {
+      x = 4;
     }
+    return x;
   }
 
   public static void printBoard() {
+    StringBuilder sb = new StringBuilder();
+
     for (int i = 0; i < boardArr.length; i++) {
       for (int j = 0; j < boardArr[i].length; j++) {
-        System.out.print(boardArr[i][j]);
+
+        if (boardArr[i][j] == checkZero) {
+          sb.append("[ ]");
+        }
+
+        if (boardArr[i][j] == myBomb) {
+          sb.append("[ ]");
+        }
+
+        if (boardArr[i][j] == myMonster) {
+          sb.append("[M]");
+        }
+
+        if (boardArr[i][j] == myCharacter) {
+          sb.append("[H]");
+        }
       }
-      System.out.println();
+      sb.append("\n");
     }
+    System.out.println();
+    System.out.println(sb);
   }
 }
