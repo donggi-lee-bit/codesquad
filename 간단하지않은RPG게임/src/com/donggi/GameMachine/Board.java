@@ -20,8 +20,6 @@ public class Board {
   static int myCharacter = 2;
 
   public static void board() {
-
-
     boardArr[characterX][characterY] = myCharacter;
     checkBoard(myBomb);
     checkBoard(myMonster);
@@ -79,15 +77,43 @@ public class Board {
       y = 4;
     }
 
-
     boardArr[characterX][characterY] = 0;
-    boardArr[x][y] = myCharacter;
     characterX = x;
     characterY = y;
+
+
+    int check = boardArr[x][y];
+    if (check == myBomb) {
+      System.out.println("폭탄을 밟아버렸습니다~~~~~~~~~~~~~~");
+    }
+
+    if (check == myMonster) {
+      System.out.println("모오오오오오온스터야야야야야야~~~~~~~~~~");
+    }
+    boardArr[x][y] = myCharacter;
     printBoard();
+
+
+//    pushBomb(x, y);
+//    catchMonster(x, y);
   }
 
-  private static void printBoard() {
+  private int getCheck(int x, int y) {
+    return boardArr[x][y];
+  }
+  private void pushBomb(int x, int y) {
+    if (boardArr[x][y] == myBomb) {
+      System.out.println("폭탄을 밟아버렸습니다~~~~~~~~~~~~~~");
+    }
+  }
+
+  private void catchMonster(int x, int y) {
+    if (boardArr[x][y] == myMonster) {
+      System.out.println("축하합니다. 몬스터를 잡았습니다!!!!!!!!!!!!!!");
+    }
+  }
+
+  public static void printBoard() {
     for (int i = 0; i < boardArr.length; i++) {
       for (int j = 0; j < boardArr[i].length; j++) {
         System.out.print(boardArr[i][j]);
