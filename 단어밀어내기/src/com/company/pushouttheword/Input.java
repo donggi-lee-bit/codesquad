@@ -1,4 +1,4 @@
-package com.company.PushOutTheWord;
+package com.company.pushouttheword;
 
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ public class Input {
     public void userInput() {
         System.out.println("단어, 이동할 횟수, 방향을 입력해주세요");
         String input = sc.nextLine();
-        String[] inputArray = new String[3];
+        String[] inputArray;
         inputArray = input.split(" ");
 
         String word = inputArray[0];
