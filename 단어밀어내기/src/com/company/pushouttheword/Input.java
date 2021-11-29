@@ -1,5 +1,7 @@
 package com.company.pushouttheword;
 
+import com.company.Main;
+
 import java.util.Scanner;
 
 public class Input {
@@ -7,15 +9,43 @@ public class Input {
     Machine machine = new Machine();
 
     public void userInput() {
-        System.out.println("단어, 이동할 횟수, 방향을 입력해주세요");
-        String input = sc.nextLine();
-        String[] inputArray;
-        inputArray = input.split(" ");
+        String inputWord = sc.next();
+        int inputCount = sc.nextInt();
+        String inputDir = sc.next().toUpperCase();
 
-        String word = inputArray[0];
-        int count = Integer.parseInt(inputArray[1]);
-        String dir = inputArray[2].toUpperCase();
+        check(inputWord, inputCount, inputDir);
 
-        machine.game(word, count, dir);
+        machine.game(inputWord, inputCount, inputDir);
+    }
+
+    private void check(String word, int count, String dir) {
+
+//        checkWord(word);
+        checkCount(count);
+        checkDir(dir);
+    }
+
+//    private void checkWord(String[] word) {
+//        if (word)
+//    }
+
+    private int checkCount(int count) {
+        if (-100 <= count && count < 100) {
+            return count;
+        } else {
+            System.out.println("잘못된 형식의 입력입니다.");
+            Main.start();
+            return count;
+        }
+    }
+
+    private String checkDir(String dir) {
+        if (dir.equals("r") || dir.equals("R") || dir.equals("l") || dir.equals("L")) {
+            return dir;
+        } else {
+            System.out.println("잘못된 형식의 입력입니다.");
+            Main.start();
+            return dir;
+        }
     }
 }
