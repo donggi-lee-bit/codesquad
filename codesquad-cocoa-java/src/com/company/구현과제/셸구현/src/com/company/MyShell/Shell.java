@@ -35,9 +35,9 @@ public class Shell {
       case "cp":
         cp();
         break;
-      case "cd":
-        cd();
-        break;
+//      case "cd":
+//        cd();
+//        break;
       case "pwd":
         pwd();
         break;
@@ -58,6 +58,12 @@ public class Shell {
         break;
     }
   }
+
+//  private void cd() {
+//    Path path = Paths.get(Shell.path);
+//    path.getParent();
+//    System.out.println("현재 경로는 : " + Shell.path);
+//  }
 
   private void root() {
     Path path = Paths.get(Shell.path);
@@ -81,7 +87,8 @@ public class Shell {
   // 경로 이동했을떄도 그 위치에 만들 수 있게
   private void mkdir() {
     try {
-      Path directoryPath = Paths.get(Shell.path + "mkdirNewDir");
+      String newDir = arr[1];
+      Path directoryPath = Paths.get(Shell.path + newDir);
       Files.createDirectory(directoryPath);
     } catch (FileAlreadyExistsException e) {
       e.printStackTrace();
@@ -120,9 +127,5 @@ public class Shell {
     } catch (IOException e) {
       e.printStackTrace();
     }
-  }
-
-  public static void cd() {
-
   }
 }
