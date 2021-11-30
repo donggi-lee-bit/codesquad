@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.PushOutTheWord.Input;
+import com.company.pushouttheword.Input;
 
 public class Main {
 
@@ -9,7 +9,7 @@ public class Main {
         start();
     }
 
-    private static void start() {
+    public static void start() {
         Input input = new Input();
         input.userInput();
     }
