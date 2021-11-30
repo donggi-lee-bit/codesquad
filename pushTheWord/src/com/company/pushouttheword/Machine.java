@@ -7,25 +7,27 @@ public class Machine {
         int countResult = Math.abs(count) % word.length();
 
         pushItToTheLeftOrRight(dir, countResult, word);
-
     }
 
     private void pushItToTheLeftOrRight(String dir, int count, String word) {
         StringBuilder sb = new StringBuilder();
+
+        Print print = new Print();
 
         if (dir.equals("L")) {
             int start = count;
             sb.append(word.substring(start, word.length()));
             sb.append(word.substring(0, start));
 
-            System.out.println(sb);
+            print.myPrint(sb.toString());
         }
 
         if (dir.equals("R")) {
             int newCount = word.length() - count;
             sb.append(word.substring(newCount, word.length()));
             sb.append(word.substring(0, newCount));
-            System.out.println(sb);
+
+            print.myPrint(sb.toString());
         }
     }
 
