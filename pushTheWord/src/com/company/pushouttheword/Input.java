@@ -9,8 +9,13 @@ public class Input {
     Machine machine = new Machine();
 
     public void userInput() {
+        System.out.print("하나의 단어를 입력해주세요 : ");
         String inputWord = sc.next();
+
+        System.out.print("숫자를 입력해주세요 : ");
         int inputCount = sc.nextInt();
+
+        System.out.print("단어를 밀어낼 방향을 입력해주세요 : ");
         String inputDir = sc.next().toUpperCase();
 
         check(inputWord, inputCount, inputDir);
@@ -20,7 +25,7 @@ public class Input {
 
     private void check(String word, int count, String dir) {
 
-//        checkWord(word);
+/*        checkWord(word);*/
         checkCount(count);
         checkDir(dir);
     }
