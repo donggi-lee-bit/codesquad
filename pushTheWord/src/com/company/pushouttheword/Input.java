@@ -10,7 +10,7 @@ public class Input {
 
     public void userInput() {
         System.out.print("하나의 단어를 입력해주세요 : ");
-        String inputWord = sc.next();
+        String inputWord = sc.nextLine();
 
         System.out.print("숫자를 입력해주세요 : ");
         int inputCount = sc.nextInt();
@@ -25,14 +25,20 @@ public class Input {
 
     private void check(String word, int count, String dir) {
 
-/*        checkWord(word);*/
+        checkWord(word);
         checkCount(count);
         checkDir(dir);
     }
 
-//    private void checkWord(String[] word) {
-//        if (word)
-//    }
+    private void checkWord(String word) {
+        String[] wordArray = word.split(" ");
+
+        if (wordArray.length > 1) {
+            System.out.println("잘못된 형식의 입력입니다.\n");
+            Main.start();
+        }
+
+    }
 
     private int checkCount(int count) {
         if (-100 <= count && count < 100) {
