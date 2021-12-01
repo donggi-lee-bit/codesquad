@@ -9,54 +9,59 @@ public class Input {
     Machine machine = new Machine();
 
     public void userInput() {
+        String inputWord = getWord();
+
+        int inputCount = getCount();
+
+        String inputDir = getDir();
+
+        if (check(inputWord, inputCount, inputDir)) {
+            machine.game(inputWord, inputCount, inputDir);
+        }
+    }
+
+    private String getWord() {
         System.out.print("하나의 단어를 입력해주세요 : ");
-        String inputWord = sc.nextLine();
+        return sc.nextLine();
+    }
 
+    private int getCount() {
         System.out.print("숫자를 입력해주세요 : ");
-        int inputCount = sc.nextInt();
-
-        System.out.print("단어를 밀어낼 방향을 입력해주세요 : ");
-        String inputDir = sc.next().toUpperCase();
-
-        check(inputWord, inputCount, inputDir);
-
-        machine.game(inputWord, inputCount, inputDir);
+        return sc.nextInt();
     }
 
-    private void check(String word, int count, String dir) {
-
-        checkWord(word);
-        checkCount(count);
-        checkDir(dir);
+    private String getDir() {
+        System.out.print("단어를 밀어낼 방향을 입력해주세요 (ex : l, L, r, R) : ");
+        return sc.next().toUpperCase();
     }
 
-    private void checkWord(String word) {
-        String[] wordArray = word.split(" ");
-
-        if (wordArray.length > 1) {
-            System.out.println("잘못된 형식의 입력입니다.\n");
-            Main.start();
-        }
-
-    }
-
-    private int checkCount(int count) {
-        if (-100 <= count && count < 100) {
-            return count;
-        } else {
+    private boolean check(String word, int count, String dir) {
+        if (!(checkWord(word))) {
             System.out.println("잘못된 형식의 입력입니다.");
-            Main.start();
-            return count;
+            return false;
         }
+
+        if (!(checkCount(count))) {
+            System.out.println("잘못된 형식의 입력입니다.");
+            return false;
+        }
+
+        if (!(checkDir(dir))) {
+            System.out.println("잘못된 형식의 입력입니다.");
+            return false;
+        }
+        return true;
     }
 
-    private String checkDir(String dir) {
-        if (dir.equals("r") || dir.equals("R") || dir.equals("l") || dir.equals("L")) {
-            return dir;
-        } else {
-            System.out.println("잘못된 형식의 입력입니다.");
-            Main.start();
-            return dir;
-        }
+    private boolean checkWord(String word) {
+        return (word.length() > 0 && word.split("\\s+").length == 1);
+    }
+
+    private boolean checkCount(int count) {
+        return -100 <= count && count < 100;
+    }
+
+    private boolean checkDir(String dir) {
+        return dir.equals("r") || dir.equals("R") || dir.equals("l") || dir.equals("L");
     }
 }
