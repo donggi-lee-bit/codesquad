@@ -32,3 +32,5 @@
 ---
 - 5주차
   - [Day 21](https://github.com/donggi-lee-bit/codesquad/wiki/Day-21)
+  - [Day 22](https://github.com/donggi-lee-bit/codesquad/wiki/Day-22)
+  - [Day 23](https://github.com/donggi-lee-bit/codesquad/wiki/Day-23)
