@@ -12,24 +12,24 @@ public class Board {
         Print print = new Print();
 
         String[][] boardArray = new String[][]{
-                {"R ", "R ", "W "},
+                {"A ", "B ", "C "},
                 {"G ", "C ", "W "},
                 {"G ", "B ", "B "}
         };
 
         // 오른쪽으로 한 칸 밀기
+        String[][] tempArray = new String[1][1];
+        tempArray[0][0] = boardArray[0][2];
+        boardArray[0][2] = boardArray[0][1];
+        boardArray[0][1] = boardArray[0][0];
+        boardArray[0][0] = tempArray[0][0];
+
+//        // 왼쪽으로 한 칸 밀기
 //        String[][] tempArray = new String[1][1];
 //        tempArray[0][0] = boardArray[0][0];
-//        boardArray[0][0] = boardArray[0][2];
-//        boardArray[0][1] = tempArray[0][0];
-//        boardArray[0][2] = boardArray[0][1];
-
-        // 왼쪽으로 한 칸 밀기
-        String[][] tempArray = new String[1][1];
-        tempArray[0][0] = boardArray[0][0];
-        boardArray[0][0] = boardArray[0][1];
-        boardArray[0][1] = boardArray[0][2];
-        boardArray[0][2] = tempArray[0][0];
+//        boardArray[0][0] = boardArray[0][1];
+//        boardArray[0][1] = boardArray[0][2];
+//        boardArray[0][2] = tempArray[0][0];
 
         print.printBoard(boardArray);
     }
