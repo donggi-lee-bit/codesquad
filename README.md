@@ -16,7 +16,7 @@
   - [Day 9](https://github.com/donggi-lee-bit/codesquad/wiki/Day-9)
   - [Day 10](https://github.com/donggi-lee-bit/codesquad/wiki/Day-10)
 ---
-- 3주차
+- 3주차 
   - [Day 11](https://github.com/donggi-lee-bit/codesquad/wiki/Day-11)
   - [Day 12](https://github.com/donggi-lee-bit/codesquad/wiki/Day-12)
   - [Day 13](https://github.com/donggi-lee-bit/codesquad/wiki/Day-13)
