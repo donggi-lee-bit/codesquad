@@ -23,7 +23,7 @@
   - [Day 14](https://github.com/donggi-lee-bit/codesquad/wiki/Day-14)
   - [Day 15](https://github.com/donggi-lee-bit/codesquad/wiki/Day-15)
 ---
-- 4주차
+- [4주차 회고](https://github.com/donggi-lee-bit/codesquad/blob/master/retrospective/4%EC%A3%BC%EC%B0%A8%ED%9A%8C%EA%B3%A0.md)
   - [Day 16](https://github.com/donggi-lee-bit/codesquad/wiki/Day-16)
   - [Day 17](https://github.com/donggi-lee-bit/codesquad/wiki/Day-17)
   - [Day 18](https://github.com/donggi-lee-bit/codesquad/wiki/Day-18)
