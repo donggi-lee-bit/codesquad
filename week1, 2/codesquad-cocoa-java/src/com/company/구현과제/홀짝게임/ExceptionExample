@@ -1,0 +1,67 @@
+public class InputConsoleView {
+    private Input input = new Input();
+
+    static class Input {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer("");
+
+        public int integer() throws Exception {
+            if (!st.hasMoreElements()) {
+                st = new StringTokenizer(br.readLine());
+            }
+            return Integer.parseInt(st.nextToken());
+        }
+
+        public String next() throws Exception {
+            if (!st.hasMoreElements()) {
+                st = new StringTokenizer(br.readLine());
+            }
+            return st.nextToken();
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("================================");
+        System.out.print("입력:");
+        InputConsoleView inputConsoleView = new InputConsoleView();
+        System.out.println(inputConsoleView.inputInt());
+        System.out.println("================================");
+    }
+
+    // 숫자를 입력받아야 할 때는
+    // 1. 문자가 들어오면 튕겨내야한다.
+    // 2. 공백이 있으면 제거해줘야 겠죠?
+    // 3. int 범위를 제한해줘야 합니다.
+    // 4. 소숫점도 고려해야 한다.
+    // 5. 아무것도 입력 안하면...
+    // `커스텀 예외 처리` 방법을 공부하시는겁니다.
+    public int inputInt() {
+        int value;
+        while (true) {
+            try {
+                value = input.integer();
+                validateIndexRange(value);
+                break;
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("예외1");
+            }  catch (IllegalArgumentException e) {
+                System.out.println("예외2");
+            } catch (NotYetAdultException e) {
+                System.out.println(e);
+            } catch (Exception e) {
+                System.out.println("예외3");
+            }
+        }
+        return value;
+    }
+
+    public void validateIndexRange(int value) {
+        if ((isInvalidRange(value))) {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    public boolean isInvalidRange(int value) {
+        return value < 1 || value > 55;
+    }
+}
