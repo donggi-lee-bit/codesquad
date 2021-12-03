@@ -5,9 +5,14 @@ import java.util.List;
 
 public class Board {
     public static void main(String[] args) {
-//        Board board = new Board();
-//
-//        board.myBoard();
+        Board board = new Board();
+
+        board.myBoard();
+
+
+    }
+
+    public void myBoard() {
 
         List<LinkedList<String>> listArray = new LinkedList<LinkedList<String>>();
         List<String> list1 = new LinkedList<String>();
@@ -32,42 +37,7 @@ public class Board {
 
         listArray.add((LinkedList<String>) list3);
 
-        for (int i = 0; i < listArray.size(); i++) {
-            for (int j = 0; j < listArray.get(i).size(); j++) {
-                System.out.print(listArray.get(i).get(j));
-            }
-            System.out.println();
-        }
+        Print print = new Print(listArray);
 
-    }
-
-    public void myBoard() {
-
-        Print print = new Print();
-
-        String[][] boardArray = new String[][]{
-                {"A ", "B ", "C "},
-                {"G ", "C ", "W "},
-                {"G ", "B ", "B "}
-        };
-
-
-
-
-        // 오른쪽으로 한 칸 밀기
-        String[][] tempArray = new String[1][1];
-        tempArray[0][0] = boardArray[0][2];
-        boardArray[0][2] = boardArray[0][1];
-        boardArray[0][1] = boardArray[0][0];
-        boardArray[0][0] = tempArray[0][0];
-
-//        // 왼쪽으로 한 칸 밀기
-//        String[][] tempArray = new String[1][1];
-//        tempArray[0][0] = boardArray[0][0];
-//        boardArray[0][0] = boardArray[0][1];
-//        boardArray[0][1] = boardArray[0][2];
-//        boardArray[0][2] = tempArray[0][0];
-
-        print.printBoard(boardArray);
     }
 }
