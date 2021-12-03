@@ -25,37 +25,43 @@ public class BaseballGame {
         for (int i = 0; i < computerNumberArrayList.size(); i++) {
             for (int j = 0; j < realNumberArray.length; j++) {
 
-                numberCompareBall(i, j);
-
-                numberCompareStrike(i, j);
+                numberCompareStrikeOrBall(i, j);
 
             }
-            if (strike == 3) {
-                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-                System.exit(0);
-            }
+            strikeOut();
         }
+        callNothing();
 
-        if (ball == 0 && strike == 0) {
-            System.out.println("낫싱");
-        }
-
-        if (ball != 0 || strike != 0) {
-            System.out.print(ball + "볼 ");
-            System.out.println(strike + " 스트라이크");
-        }
-
+        callBallStrike();
     }
 
-    private void numberCompareStrike(int i, int j) {
+    private void numberCompareStrikeOrBall(int i, int j) {
         if (i == j && Integer.compare(computerNumberArrayList.get(i), realNumberArray[j]) == 0) {
             strike++;
         }
-    }
 
-    private void numberCompareBall(int i, int j) {
         if (i != j && Integer.compare(computerNumberArrayList.get(i), realNumberArray[j]) == 0) {
             ball++;
+        }
+    }
+
+    private void strikeOut() {
+        if (strike == 3) {
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            System.exit(0);
+        }
+    }
+
+    private void callNothing() {
+        if (ball == 0 && strike == 0) {
+            System.out.println("낫싱");
+        }
+    }
+
+    private void callBallStrike() {
+        if (ball != 0 || strike != 0) {
+            System.out.print(ball + "볼 ");
+            System.out.println(strike + " 스트라이크");
         }
     }
 

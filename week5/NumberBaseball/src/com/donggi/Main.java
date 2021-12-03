@@ -7,7 +7,7 @@ public class Main {
         BaseballGame.ComputerNumber();
 
         while (true) {
-            new BaseballGame();
+             new BaseballGame();
         }
     }
 }
