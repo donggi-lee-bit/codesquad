@@ -30,14 +30,21 @@ public class BaseballGame {
                 numberCompareStrike(i, j);
 
             }
+            if (strike == 3) {
+                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+                System.exit(0);
+            }
         }
 
         if (ball == 0 && strike == 0) {
             System.out.println("낫싱");
         }
 
-        System.out.println("ball : " + ball);
-        System.out.println("strike : " + strike);
+        if (ball != 0 || strike != 0) {
+            System.out.print(ball + "볼 ");
+            System.out.println(strike + " 스트라이크");
+        }
+
     }
 
     private void numberCompareStrike(int i, int j) {
@@ -57,6 +64,6 @@ public class BaseballGame {
             int randomNumber = (int) (Math.random() * 9) + 1;
             computerNumberSet.add(randomNumber);
         }
-        System.out.println(computerNumberSet);
+//        System.out.println(computerNumberSet);
     }
 }
