@@ -1,12 +1,19 @@
 package com.donggi;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Print {
 
-    public void printBoard(String[][] boardArray) {
+    Print() { }
+
+    Print(List<LinkedList<String>> boardArray) {
+
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < boardArray.length; i++) {
-            for (int j = 0; j < boardArray[i].length; j++) {
-                sb.append(boardArray[i][j]);
+
+        for (int i = 0; i < boardArray.size(); i++) {
+            for (int j = 0; j < boardArray.get(i).size(); j++) {
+                sb.append(boardArray.get(i).get(j));
             }
             sb.append("\n");
         }

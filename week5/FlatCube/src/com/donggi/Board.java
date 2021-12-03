@@ -1,37 +1,43 @@
 package com.donggi;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Board {
     public static void main(String[] args) {
         Board board = new Board();
 
         board.myBoard();
 
+
     }
 
     public void myBoard() {
 
-        Print print = new Print();
+        List<LinkedList<String>> listArray = new LinkedList<LinkedList<String>>();
+        List<String> list1 = new LinkedList<String>();
+        List<String> list2 = new LinkedList<>();
+        List<String> list3 = new LinkedList<>();
 
-        String[][] boardArray = new String[][]{
-                {"A ", "B ", "C "},
-                {"G ", "C ", "W "},
-                {"G ", "B ", "B "}
-        };
+        list1.add("R ");
+        list1.add("R ");
+        list1.add("W ");
 
-        // 오른쪽으로 한 칸 밀기
-        String[][] tempArray = new String[1][1];
-        tempArray[0][0] = boardArray[0][2];
-        boardArray[0][2] = boardArray[0][1];
-        boardArray[0][1] = boardArray[0][0];
-        boardArray[0][0] = tempArray[0][0];
+        listArray.add((LinkedList<String>) list1);
 
-//        // 왼쪽으로 한 칸 밀기
-//        String[][] tempArray = new String[1][1];
-//        tempArray[0][0] = boardArray[0][0];
-//        boardArray[0][0] = boardArray[0][1];
-//        boardArray[0][1] = boardArray[0][2];
-//        boardArray[0][2] = tempArray[0][0];
+        list2.add("G ");
+        list2.add("C ");
+        list2.add("W ");
 
-        print.printBoard(boardArray);
+        listArray.add((LinkedList<String>) list2);
+
+        list3.add("G ");
+        list3.add("B ");
+        list3.add("B ");
+
+        listArray.add((LinkedList<String>) list3);
+
+        Print print = new Print(listArray);
+
     }
 }
