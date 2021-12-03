@@ -1,8 +1,6 @@
 package com.donggi;
 
-import java.util.Deque;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Cube {
@@ -28,13 +26,14 @@ public class Cube {
         cubeBoard.get(2).add("B ");
 
         Scanner sc = new Scanner(System.in);
+
         printCube();
+
         while (run) {
             System.out.print("CUBE> ");
-            command = sc.nextLine().split("");
+            command = sc.nextLine().split(" ");
             mix();
         }
-
     }
 
     private void mix() {
@@ -45,11 +44,53 @@ public class Cube {
                 cubeBoard.get(0).addLast(pop);
             }
 
-            if (command[i].equals("Q")) {
-                System.out.println("Bye~");
-                run = false;
+            if (command[i].equals("U'")) {
+                String pop = cubeBoard.get(0).removeLast();
+                cubeBoard.get(0).addFirst(pop);
             }
 
+            if (command[i].equals("R")) {
+                String pop = cubeBoard.get(0).removeLast();
+                cubeBoard.get(0).addLast(cubeBoard.get(1).removeLast());
+                cubeBoard.get(1).addLast(cubeBoard.get(2).removeLast());
+                cubeBoard.get(2).addLast(pop);
+            }
+
+            if (command[i].equals("R'")) {
+                String pop = cubeBoard.get(2).removeLast();
+                cubeBoard.get(2).addLast(cubeBoard.get(1).removeLast());
+                cubeBoard.get(1).addLast(cubeBoard.get(0).removeLast());
+                cubeBoard.get(0).addLast(pop);
+            }
+
+            if (command[i].equals("L")) {
+                String pop = cubeBoard.get(2).removeFirst();
+                cubeBoard.get(2).addFirst(cubeBoard.get(1).removeFirst());
+                cubeBoard.get(1).addFirst(cubeBoard.get(0).removeFirst());
+                cubeBoard.get(0).addFirst(pop);
+            }
+
+            if (command[i].equals("L'")) {
+                String pop = cubeBoard.get(0).removeFirst();
+                cubeBoard.get(0).addFirst(cubeBoard.get(1).removeFirst());
+                cubeBoard.get(1).addFirst(cubeBoard.get(2).removeFirst());
+                cubeBoard.get(2).addFirst(pop);
+            }
+
+            if (command[i].equals("B")) {
+                String pop = cubeBoard.get(2).removeLast();
+                cubeBoard.get(2).addFirst(pop);
+            }
+
+            if (command[i].equals("B'")) {
+                String pop = cubeBoard.get(0).removeFirst();
+                cubeBoard.get(0).addLast(pop);
+            }
+
+            if (command[i].equals("Q")) {
+                System.out.print("Bye~");
+                System.exit(0);
+            }
             System.out.println(command[i]);
             printCube();
         }
