@@ -31,7 +31,7 @@ public class Cube {
 
         while (run) {
             System.out.print("CUBE> ");
-            command = sc.nextLine().split(" ");
+            command = sc.nextLine().split(""); // 조건식 L' 처럼 '이 들어갈 경우 잘라줄 조건 추가해야함
             mix();
         }
     }
