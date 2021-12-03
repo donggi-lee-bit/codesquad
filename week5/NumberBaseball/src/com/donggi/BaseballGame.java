@@ -1,18 +1,19 @@
 package com.donggi;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class BaseballGame {
 
     Scanner sc = new Scanner(System.in);
     String[] numberArray;
-    int[] computerNumber = new int[3];
     int[] realNumberArray = new int[3];
     int ball;
     int strike;
 
+    static Set<Integer> computerNumberSet = new HashSet<>();
+    ArrayList<Integer> computerNumberArrayList = new ArrayList<>(computerNumberSet);
+
     BaseballGame() {
-        ComputerNumber();
 
         System.out.print("세 개의 숫자를 입력해주세요 : ");
         numberArray = sc.nextLine().split(" |");
@@ -21,20 +22,36 @@ public class BaseballGame {
             realNumberArray[i] = Integer.parseInt(numberArray[i]);
         }
 
-        for (int i = 0; i < computerNumber.length; i++) {
+        for (int i = 0; i < computerNumberArrayList.size(); i++) {
             for (int j = 0; j < realNumberArray.length; j++) {
-                Integer.compare(computerNumber[i], realNumberArray[j]);
-                System.out.printf("compare 몇번하나 보자 ㅡㅡ i : %d j : %d \n", computerNumber[i], realNumberArray[j]);
+
+                numberCompareBall(i, j);
+
+                numberCompareStrike(i, j);
             }
         }
 
-
+        System.out.println("ball : " + ball);
+        System.out.println("strike : " + strike);
     }
 
-    void ComputerNumber() {
-        for (int i = 0; i < computerNumber.length; i++) {
-            computerNumber[i] = (int) (Math.random() * 9);
-            System.out.println("컴퓨터 숫자는 : " + computerNumber[i]);
+    private void numberCompareStrike(int i, int j) {
+        if (i == j && Integer.compare(computerNumberArrayList.get(i), realNumberArray[j]) == 0) {
+            strike++;
         }
+    }
+
+    private void numberCompareBall(int i, int j) {
+        if (i != j && Integer.compare(computerNumberArrayList.get(i), realNumberArray[j]) == 0) {
+            ball++;
+        }
+    }
+
+    public static void ComputerNumber() {
+        while (computerNumberSet.size() < 3) {
+            int randomNumber = (int) (Math.random() * 9) + 1;
+            computerNumberSet.add(randomNumber);
+        }
+        System.out.println(computerNumberSet);
     }
 }
