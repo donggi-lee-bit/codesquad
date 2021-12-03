@@ -2,38 +2,49 @@ package com.donggi;
 
 public class Command {
 
-    Input input = new Input();
+    static boolean isGoing = true;
 
-    public void cubeCommand() {
+    Board board = new Board();
 
-        switch (input.command) {
+    Command() {
+
+        Input input = new Input();
+
+        switch (input.userInput()) {
             case "U":
-                System.out.println("U를 입력하였습니다");
+                board.currentBoard("U");
                 break;
             case "U'":
-                System.out.println("U'를 입력하였습니다");
+                board.currentBoard("U'");
                 break;
             case "R":
-                System.out.println("R를 입력하였습니다");
+                board.currentBoard("R");
                 break;
             case "R'":
-                System.out.println("R'를 입력하였습니다");
+                board.currentBoard("R'");
                 break;
             case "L":
-                System.out.println("L를 입력하였습니다");
+                board.currentBoard("L");
                 break;
             case "L'":
-                System.out.println("L'를 입력하였습니다");
+                board.currentBoard("L'");
                 break;
             case "B":
-                System.out.println("B를 입력하였습니다");
+                board.currentBoard("B");
                 break;
             case "B'":
-                System.out.println("B'를 입력하였습니다");
+                board.currentBoard("B'");
                 break;
             case "Q":
-                System.out.println("Q를 입력하였습니다");
+                System.out.println("Bye~");
+                quit();
                 break;
+            default:
+                System.out.println("잘못된 입력이옵니다.");
         }
+    }
+
+    private void quit() {
+        isGoing = false;
     }
 }
