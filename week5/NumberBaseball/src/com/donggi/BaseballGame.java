@@ -28,7 +28,12 @@ public class BaseballGame {
                 numberCompareBall(i, j);
 
                 numberCompareStrike(i, j);
+
             }
+        }
+
+        if (ball == 0 && strike == 0) {
+            System.out.println("낫싱");
         }
 
         System.out.println("ball : " + ball);
