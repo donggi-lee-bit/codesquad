@@ -1,4 +1,5 @@
 # codesquad cocoa (2021.11.01 ~ 2021.12.02)
+- 2022 마스터즈코스 테스트 (2021.12.06 ~ 2021.12.08)
 - [코코아 방과후 스터디](https://github.com/devjun10/CodeSquad_Cocoa_Study)
   - [스레드](https://github.com/devjun10/CodeSquad_Cocoa_Study/tree/main/content/thread/donggi)
 ---
