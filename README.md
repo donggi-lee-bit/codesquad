@@ -1,4 +1,4 @@
-# codesquad cocoa (2021.11.01 ~ )
+# codesquad cocoa (2021.11.01 ~ 2021.12.02)
 - [코코아 방과후 스터디](https://github.com/devjun10/CodeSquad_Cocoa_Study)
   - [스레드](https://github.com/devjun10/CodeSquad_Cocoa_Study/tree/main/content/thread/donggi)
 ---
